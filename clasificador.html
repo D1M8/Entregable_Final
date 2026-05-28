@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Clasificador de imágenes</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
+  <script src="https://unpkg.com/ml5@0.5.0/dist/ml5.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: #c6ff3a;
+      text-align: center;
+      font-family: Arial;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Clasificador de Imágenes </h1>
+
+<p>Haz clic en una imagen</p>
+
+<div class="botones">
+
+  <img src="img/img1.jpg" onclick="clasificar(this)">
+  <img src="img/img2.jpg" onclick="clasificar(this)">
+  <img src="img/img3.jpg" onclick="clasificar(this)">
+  <img src="img/img4.jpg" onclick="clasificar(this)">
+  <img src="img/img5.jpg" onclick="clasificar(this)">
+
+</div>
+
+<div id="resultado">Resultado: ...</div>
+
+<script>
+
+</script>
+
+</body>
+</html>
