@@ -68,13 +68,13 @@ function draw() {
     if (d.label === "person") {
       hayPersona = true;
       stroke(0, 255, 0);
-      strokeWeight(4);
+      strokeWeight(4); //Grosor del borde
       noFill();
-      rect(d.x, d.y, d.width, d.height);
+      rect(d.x, d.y, d.width, d.height); //DIBUJA EL RECTÁNGULO
       noStroke();
       fill(255);
       textSize(18);
-      text(d.label, d.x + 5, d.y + 20);
+      text(d.label, d.x + 5, d.y + 20); //ETIQUETA CON EL NOMBRE DEL OBJETO
     }
   }
 
