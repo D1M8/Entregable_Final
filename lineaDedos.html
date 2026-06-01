@@ -1,14 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Línea dinámica manos</title>
+<meta charset="UTF-8">
+<title>Línea dinámica manos</title>
 
-  <script src="https://cdn.jsdelivr.net/npm/p5@1.11.13/lib/p5.min.js"></script>
-  <script src="https://unpkg.com/ml5@1/dist/ml5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/p5@1.11.13/lib/p5.min.js"></script>
+<script src="https://unpkg.com/ml5@1/dist/ml5.min.js"></script>
+
+<style>
+body{
+  margin:0;
+  background:#111;
+  overflow:hidden;
+}
+
+/* canvas centrado visual */
+canvas{
+  display:block;
+  margin:auto;
+}
+
+/* opcional: título estilo tu tema */
+h1{
+  position:absolute;
+  top:10px;
+  width:100%;
+  text-align:center;
+  color:#c6ff3a;
+  font-family:sans-serif;
+  z-index:10;
+}
+</style>
 </head>
 
 <body>
+
+<h1>Línea entre manos</h1>
 
 <script>
 
@@ -38,39 +65,38 @@ function draw() {
     let hand1 = hands[0];
     let hand2 = hands[1];
 
-    let p1 = hand1.keypoints[8]; // índice mano 1
-    let p2 = hand2.keypoints[8]; // índice mano 2
+    let p1 = hand1.keypoints[8];
+    let p2 = hand2.keypoints[8];
 
     let x1 = p1.x;
     let y1 = p1.y;
     let x2 = p2.x;
     let y2 = p2.y;
 
-    // distancia entre manos
     let d = dist(x1, y1, x2, y2);
 
-    // 🔵 color dinámico según distancia
-    // cerca = azul, lejos = rojo
-    let r = map(d, 50, 400, 0, 255);
-    let b = map(d, 50, 400, 255, 0);
+    // 🎨 COLOR estilo verde neón (#c6ff3a como base)
+    let r = map(d, 50, 400, 198, 255);
+    let g = map(d, 50, 400, 255, 255);
+    let b = map(d, 50, 400, 58, 80);
 
     r = constrain(r, 0, 255);
+    g = constrain(g, 0, 255);
     b = constrain(b, 0, 255);
 
-    stroke(r, 0, b);
+    stroke(r, g, b);
 
     // grosor dinámico
-    let thickness = map(d, 50, 400, 2, 15);
-    thickness = constrain(thickness, 2, 15);
+    let thickness = map(d, 50, 400, 2, 18);
+    thickness = constrain(thickness, 2, 18);
 
     strokeWeight(thickness);
 
-    // línea índice a índice
     line(x1, y1, x2, y2);
   }
 }
 
-// recibir datos IA
+// IA output
 function gotHands(results) {
   hands = results;
 }
