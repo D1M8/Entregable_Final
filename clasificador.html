@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es"> 
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8"> // CODIFICACIÓN DE CARACTERES
 <title>Detectar imagen</title>
 
 <style>
 body{
-  font-family:sans-serif;
-  background:#111;
+  font-family:sans-serif; /*TIPO DE LETRA*/
+  background:#111;  /*FONDO OSCURO*/
   color:#eee;
   text-align:center;
-  padding:30px;
+  padding:30px; /*ESPACIADO ALREDEDOR DEL CONTENIDO*/
 }
 
 h1{
@@ -19,8 +19,8 @@ h1{
 
 /* layout izquierda derecha */
 .container{
-  display:flex;
-  height:500px;
+  display:flex; 
+  height:500px; 
   margin-top:20px;
 }
 
@@ -30,7 +30,7 @@ h1{
   display:flex;
   flex-direction:column;
   gap:10px;
-  border-right:2px solid #333;
+  border-right:2px solid #333; /*LINEA DIVISORIA*/
   padding-right:10px;
 }
 
@@ -44,7 +44,7 @@ h1{
 }
 
 .menu div:hover{
-  border-color:#c6ff3a;
+  border-color:#c6ff3a; /*CAMBIO DE COLOR AL PASAR EL MOUSE*/
 }
 
 /* PANEL DERECHO */
@@ -54,14 +54,14 @@ h1{
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  position:relative;
+  position:relative; /*PARA POSICIONAR LA INTERROGACIÓN*/
 }
 
 /* IMAGEN */
 .panel img{
   width:260px;
   height:260px;
-  object-fit:cover;
+  object-fit:cover; /*AJUSTA LA IMAGEN AL CONTENEDOR*/
   border:3px solid #333;
   border-radius:10px;
 }
@@ -90,7 +90,7 @@ h1{
 
   <!-- IZQUIERDA -->
   <div class="menu">
-    <div onclick="clasificar(0)">A</div>
+    <div onclick="clasificar(0)">A</div> 
     <div onclick="clasificar(1)">B</div>
     <div onclick="clasificar(2)">C</div>
     <div onclick="clasificar(3)">D</div>
@@ -99,7 +99,7 @@ h1{
 
   <!-- DERECHA -->
   <div class="panel">
-    <div id="question">❓</div>
+    <div id="question">❓</div> 
     <img id="imagen" src="img/img1.jpg">
     <div id="resultado">Selecciona una imagen</div>
   </div>
@@ -124,7 +124,7 @@ function clasificar(i){
 
   img.src = data[i].img;
 
-  let confianza = Math.random()*100;
+  let confianza = Math.random()*100; //SIMULA UN RESULTADO DE CLASIFICACIÓN ENTRE 0 Y 100
 
   if(confianza < 50){
     q.style.display="block";
